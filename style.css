@@ -2,5 +2,30 @@
     list-style-type: none;
     padding:0;
     margin:0;
+}
+#weatherToday{
+    position:absolute;
+    top:85px; left: 240px;
+    
+    display: flex;
+   border: solid 3px;
+    padding: 0px;
+    width: 75%;
+    height: 450px;
+}
+
+#cityStats{
+    font-size: 125%;
+    position:absolute;
+    top:200px; left: 350px;
+
+}
+#cityName{
+ font-size: 175%;
+ font-weight:bold;
+ padding-bottom: 15px;
+}
+span {
+    text-align:center;
 
 }

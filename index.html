@@ -26,20 +26,28 @@
     <div class="col-sm-4 h-100 " id= "searchBox"><input id="chosenCity" type="text" class="form-group-sm"><button id="findCity" class="icon"><i class="fa fa-search bg-primary text-white" ></i></button>
       <br>
     </div>
-    <div id ="weatherToday" class="h-1000 d-block col-sm-6 border border-dark">Today's Weather</div>
+    <div id ="weatherToday" class="text-center ">Today's Weather</div>
+    <div id="todaysDate" class=""></div>
+    <ul id="cityStats">
+        <li id="cityName">c</li>
+        <li id="cityTemp">t</li>
+        <li id="cityHumid">h</li>
+        <li id="cityWind">w</li>
+      </ul>
+    </div>
       <div class="row"></div>
       <div id = "cityList" class="card-body"></div>
-        <ul id="cities">
-          <li class="col-sm-1 border border-dark card-title text-center">city0</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city1</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city2</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city3</li>    
-          <li class="col-sm-1 border border-dark card-title text-center">city4</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city5</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city6</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city7</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city8</li>
-          <li class="col-sm-1 border border-dark card-title text-center">city9</li>
+        <ul id="cities" class="">
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityZro">city0</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityOne">city1</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityTwo">city2</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityTre">city3</li>    
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityFor">city4</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityFiv">city5</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="citySix">city6</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="citySev">city7</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityEig">city8</li>
+          <li class="col-sm-2 border border-dark card-title text-center" id="cityNin">city9</li>
         </ul>
   </div>
 <!-- today's weather -->
@@ -49,11 +57,11 @@
 <!-- <div class="row"> -->
 <div id="fiveDay" >Five Day forecast
     <ul class = "list-inline justify-content-center card-body height: 25px; width: 10rem; mx-auto"></ul>
-    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayOne">1<p class="card-text" id ="icon">icon</p><p class="card-text" id ="temp">it's hot</p><p class="card-text" id ="humid">50%</p></li>
-    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayTwo">2<p class="card-text" id ="icon">icon</p><p class="card-text" id ="temp">it's hot</p><p class="card-text" id ="humid">50%</p></li>
-    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayTre">3<p class="card-text" id ="icon">icon</p><p class="card-text" id ="temp">it's hot</p><p class="card-text" id ="humid">50%</p></li>
-    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayFor">4<p class="card-text" id ="icon">icon</p><p class="card-text" id ="temp">it's hot</p><p class="card-text" id ="humid">50%</p></li>
-    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayFiv">5<p class="card-text" id ="icon">icon</p><p class="card-text" id ="temp">it's hot</p><p class="card-text" id ="humid">50%</p></li>
+    <li class="padding-left: 10; card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayOne">1<p class="card-text" id ="icon">icon</p><p class="card-text" id ="temp">it's hot</p><p class="card-text" id ="humid">50%</p></li>
+    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayTwo">2<p class="card-text" id ="icon1">icon</p><p class="card-text" id ="temp1">it's hot</p><p class="card-text" id ="humid1">50%</p></li>
+    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayTre">3<p class="card-text" id ="icon2">icon</p><p class="card-text" id ="temp2">it's hot</p><p class="card-text" id ="humid2">50%</p></li>
+    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayFor">4<p class="card-text" id ="icon3">icon</p><p class="card-text" id ="temp3">it's hot</p><p class="card-text" id ="humid3">50%</p></li>
+    <li class="card-title p-3 mb-2 bg-primary text-white col-sm-2 list-inline-item border-radius: 20%" id="dayFiv">5<p class="card-text" id ="icon4">icon</p><p class="card-text" id ="temp4">it's hot</p><p class="card-text" id ="humid4">50%</p></li>
     </div>
 </div>
 <!-- </div> -->
