@@ -2,7 +2,8 @@
 var transPick =""
 var cityPicked=[];
 var storedCity=[];
-var cityCount=0
+var cityCount=0;
+var chooseCity = " ";
 $( "#findCity" ).click(function() {
 
 let chooseCity = $("#chosenCity").val();
@@ -44,23 +45,23 @@ document.getElementById("dayTre").innerHTML = day3;
 document.getElementById("dayFor").innerHTML = day4;
 document.getElementById("dayFiv").innerHTML = day5;
 
-document.getElementById("icon1").innerHTML = "icon";
-document.getElementById("icon2").innerHTML = "icon";
-document.getElementById("icon3").innerHTML = "icon";
-document.getElementById("icon4").innerHTML = "icon";
-document.getElementById("icon5").innerHTML = "icon";
+document.getElementById("iconOne").innerHTML = "icon";
+document.getElementById("iconTwo").innerHTML = "icon";
+document.getElementById("iconTre").innerHTML = "icon";
+document.getElementById("iconFor").innerHTML = "icon";
+document.getElementById("iconFiv").innerHTML = "icon";
 
-document.getElementById("temp1").innerHTML = "temp";
-document.getElementById("temp2").innerHTML = "temp";
-document.getElementById("temp3").innerHTML = "temp";
-document.getElementById("temp4").innerHTML = "temp";
-document.getElementById("temp5").innerHTML = "temp";
+document.getElementById("tempOne").innerHTML = "temp";
+document.getElementById("tempTwo").innerHTML = "temp";
+document.getElementById("tempTre").innerHTML = "temp";
+document.getElementById("tempFor").innerHTML = "temp";
+document.getElementById("tempFiv").innerHTML = "temp";
 
-document.getElementById("humid1").innerHTML = "humid";
-document.getElementById("humid2").innerHTML = "humid";
-document.getElementById("humid3").innerHTML = "humid";
-document.getElementById("humid4").innerHTML = "humid";
-document.getElementById("humid5").innerHTML = "humid";
+document.getElementById("humidOne").innerHTML = "humid";
+document.getElementById("humidTwo").innerHTML = "humid";
+document.getElementById("humidTre").innerHTML = "humid";
+document.getElementById("humidFor").innerHTML = "humid";
+document.getElementById("humidFiv").innerHTML = "humid";
 console.log(timeNow);
 }
-// dateCalc();
+dateCalc();
