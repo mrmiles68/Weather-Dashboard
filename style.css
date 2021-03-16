@@ -5,7 +5,7 @@
 }
 #weatherToday{
     position:absolute;
-    top:85px; left: 240px;
+    top:85px; left: 350px;
     
     display: flex;
    border: solid 3px;
@@ -18,7 +18,7 @@
     font-size: 125%;
     position:absolute;
     top:200px; left: 350px;
-
+    list-style-type: none;
 }
 #cityName{
  font-size: 175%;
@@ -28,4 +28,11 @@
 span {
     text-align:center;
 
+}
+
+.fiveday{
+
+    position:absolute;
+    left: 350px;
+    
 }
