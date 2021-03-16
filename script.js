@@ -7,29 +7,31 @@ var chooseCity = " ";
 var citySave=""
 var fiveDayIcon=[]
 var fiveDayTemp=[]
+var fiveDayTempF=[]
 var fiveDayHumid=[]
+var iconLink=[]
+var iconBegin = "http://openweathermap.org/img/wn/"
+var iconEnd = "@2x.png"
 var step = 0;
+var linkBuild =""
 
-dataURL ="http://api.openweathermap.org/data/2.5/weather?q=";
+dataURL ="https://api.openweathermap.org/data/2.5/weather?q=";
 trailURL="&appid=bd61ef1d733089162a77b7578f04dddc"
 comboURL=""
 finalURL=""
-fiveURL = "http://api.openweathermap.org/data/2.5/forecast?q="
+fiveURL = "https://api.openweathermap.org/data/2.5/forecast?q="
 fcomboURL=""
 secondURL=""
 let kelvinTemp = 0;
 let localHumid = 0;
 let windSpeed = 0;
 
-//KT as a param
-let tempConvert =function(){
 // conversion code Courtesy brettvaida GitHub Gist.
-// Celsius is 273 degrees less than Kelvin
+let tempConvert =function(){
 console.log("KT " + kelvinTemp)
 const celsius = kelvinTemp - 273;
-// Calculating Fahrenheit temperature to the nearest integer
-
 let fahrenheit = Math.floor(celsius * (9/5) + 32);
+
 // Displaying the temperature using string interpolation
 console.log(`The temperature is ${fahrenheit} degrees fahrenheit.`)
 return fahrenheit;
@@ -38,11 +40,11 @@ return fahrenheit;
 // User selects city
 
 $( "#findCity" ).click(function() {
-
+step=0;
 let chooseCity = $("#chosenCity").val();
 let comboURL = dataURL.concat(chooseCity);
 let finalURL = comboURL.concat(trailURL);
-
+// document.getElementById("cityStats").innerHTML = chooseCity;
 fetch(finalURL).then(function (response) {
     return response.json();
   })
@@ -54,12 +56,7 @@ fetch(finalURL).then(function (response) {
     console.log("temp in Kelvin " + kelvinTemp);
     console.log("Humidity: " + localHumid);
     console.log("Wind Speed: " + windSpeed);
-    
-    //let KT = data.main.temp;
-    //KT as a argument
-    tempConvert();
-    // console.log(" they got this " + fahrenheit)
-    dateCalc();
+
   });
 
 
@@ -82,7 +79,9 @@ let secondURL = fcomboURL.concat(trailURL);
         console.log("humidity is " + fiveDayHumid[i]);
         console.log("step is " + step)
         step += 8;
-        
+        linkBuild=iconBegin.concat(fiveDayIcon[i]);
+        iconLink[i]=linkBuild.concat(iconEnd)
+        console.log("icon link: " + iconLink[i])
 
 //let fahrenheitToKelvin = tempConvert(data.main.temp)
 
@@ -124,9 +123,12 @@ var todayDate = moment().format("MM DD YY");
 var addSpace = chooseCity.concat(" ");
 var timeNow = addSpace.concat(todayDate);
 tempConvert();
-document.getElementById("cityName").innerHTML = chooseCity;
-document.getElementById("cityDate").innerHTML = timeNow;
-// document.getElementById("cityTemp").innerHTML = "Temperature: " + fahrenheit + " Degrees";
+const celsius = kelvinTemp - 273;
+let fahrenheit = Math.floor(celsius * (9/5) + 32);
+console.log(`The temperature is ${fahrenheit} degrees fahrenheit.`)
+document.getElementById("cityName").innerHTML = chooseCity +"  "+ timeNow;
+// document.getElementById("cityDate").innerHTML = timeNow;
+document.getElementById("cityTemp").innerHTML = "Temperature: " + fahrenheit + " Degrees";
 document.getElementById("cityHumid").innerHTML = "Humidity: " + localHumid + "%";
 document.getElementById("cityWind").innerHTML = "Wind Speed: " + windSpeed + " MPH";
 const day1 = moment(todayDate, "MM DD YY").add(1, 'days').format("MM DD YY");
@@ -140,23 +142,28 @@ document.getElementById("dayTre").innerHTML = day3;
 document.getElementById("dayFor").innerHTML = day4;
 document.getElementById("dayFiv").innerHTML = day5;
 
-document.getElementById("iconOne").innerHTML = "icon";
-document.getElementById("iconTwo").innerHTML = "icon";
-document.getElementById("iconTre").innerHTML = "icon";
-document.getElementById("iconFor").innerHTML = "icon";
-document.getElementById("iconFiv").innerHTML = "icon";
+document.getElementById("iconOne").src = iconLink[0];
+document.getElementById("iconTwo").src = iconLink[1];
+document.getElementById("iconTre").src = iconLink[2];
+document.getElementById("iconFor").src = iconLink[3];
+document.getElementById("iconFiv").src = iconLink[4];
+for (i=0; i<5; i++){
+    const celsius = fiveDayTemp[i] - 273;
+    let fahrenheit = Math.floor(celsius * (9/5) + 32);
+    fiveDayTempF[i] = fahrenheit
+}
 
-document.getElementById("tempOne").innerHTML = "temp";
-document.getElementById("tempTwo").innerHTML = "temp";
-document.getElementById("tempTre").innerHTML = "temp";
-document.getElementById("tempFor").innerHTML = "temp";
-document.getElementById("tempFiv").innerHTML = "temp";
+document.getElementById("tempOne").innerHTML = "Temp: " + fiveDayTempF[0] + " Deg."
+document.getElementById("tempTwo").innerHTML = "Temp: " + fiveDayTempF[1] + " Deg."
+document.getElementById("tempTre").innerHTML = "Temp: " + fiveDayTempF[2] + " Deg."
+document.getElementById("tempFor").innerHTML = "Temp: " + fiveDayTempF[3] + " Deg."
+document.getElementById("tempFiv").innerHTML = "Temp: " + fiveDayTempF[4] + " Deg."
 
-document.getElementById("humidOne").innerHTML = fiveDayHumid[0];
-document.getElementById("humidTwo").innerHTML = fiveDayHumid[1];
-document.getElementById("humidTre").innerHTML = fiveDayHumid[2];
-document.getElementById("humidFor").innerHTML = fiveDayHumid[3];
-document.getElementById("humidFiv").innerHTML = fiveDayHumid[4];
+document.getElementById("humidOne").innerHTML = "Humidity: " + fiveDayHumid[0]+"%";
+document.getElementById("humidTwo").innerHTML = "Humidity: " + fiveDayHumid[1]+"%";
+document.getElementById("humidTre").innerHTML = "Humidity: " + fiveDayHumid[2]+"%";
+document.getElementById("humidFor").innerHTML = "Humidity: " + fiveDayHumid[3]+"%";
+document.getElementById("humidFiv").innerHTML = "Humidity: " + fiveDayHumid[4]+"%";
 console.log(timeNow);
 }
 
